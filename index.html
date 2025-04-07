@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+  <link href="styles.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-bl from-gray-900 via-indigo-900 to-blue-900 min-h-screen text-gray-100 flex flex-col">
+
+  <header class="w-full py-6 bg-gray-800 shadow-lg">
+    <div class="max-w-5xl mx-auto px-6">
+      <h1 class="text-4xl font-extrabold text-center text-purple-300 tracking-wide uppercase">Weather Dashboard</h1>
+      <p class="text-center text-blue-300 text-sm mt-1">Search your city for real-time weather data</p>
+    </div>
+  </header>
+
+  <main class="flex-grow px-4 py-10">
+    <section id="weather-interface" class="bg-gray-800/80 backdrop-blur-md shadow-2xl rounded-3xl p-8 w-full max-w-4xl mx-auto border border-purple-600">
+      
+      <div id="search-container" class="mb-8">
+        <label for="city-name-input" class="block mb-3 text-lg font-semibold text-gray-200">Search for your city</label>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <input 
+            type="text" 
+            id="city-name-input" 
+            class="flex-1 bg-gray-900 border border-gray-700 text-gray-100 placeholder-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            placeholder="e.g., Delhi or New York">
+          <button 
+            id="get-weather-btn" 
+            onclick="fetchWeatherData()"
+            class="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-5 py-2 rounded-lg transition-all duration-200">
+            Forecast
+          </button>
+        </div>
+      </div>
+
+      <div id="weather-output" class="hidden text-center mb-10">
+        <h2 id="output-city-name" class="text-2xl font-bold text-blue-300 mb-2 uppercase"></h2>
+        <div class="flex flex-col items-center gap-2">
+          <img id="output-icon" src="" alt="Weather Icon" class="w-20 h-20">
+          <p id="output-temp" class="text-3xl font-extrabold text-purple-200"></p>
+          <p id="output-desc" class="text-md text-gray-300 italic"></p>
+        </div>
+      </div>
+
+      <div id="forecast-container" class="hidden">
+        <h3 class="text-xl font-bold text-purple-300 mb-4 text-center">5-Day Forecast</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <!-- Forecast cards will be inserted here dynamically -->
+        </div>
+      </div>
+
+      <div id="location-container" class="mt-8 text-center">
+        <button 
+          id="get-location-weather-btn" 
+          onclick="fetchLocationWeather()"
+          class="bg-green-600 hover:bg-green-700 text-white font-semibold px-5 py-2 rounded-lg transition-all duration-200">
+          Use My Location
+        </button>
+      </div>
+
+      <div id="recent-searches-container" class="mt-8 text-center">
+        <label for="recent-searches" class="block mb-3 text-lg font-semibold text-gray-200">Recently Searched Cities</label>
+        <select 
+          id="recent-searches" 
+          class="bg-gray-900 border border-gray-700 text-gray-100 placeholder-gray-400 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          onchange="selectCityFromDropdown()">
+          <option value="">Select a city</option>
+          <!-- Recently searched cities will be populated here -->
+        </select>
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 text-gray-400 text-center py-4 text-sm border-t border-gray-700">
+    <p>Developed by Mankirat Kaur | Powered by OpenWeather API</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

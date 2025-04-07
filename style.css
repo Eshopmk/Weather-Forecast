@@ -1,0 +1,30 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  #weather-interface {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  #search-container {
+    margin-bottom: 20px;
+  }
+  
+  #weather-output {
+    margin-bottom: 20px;
+  }
+  
+  #forecast-container {
+    margin-top: 20px;
+  }
+  
+  #location-container {
+    margin-top: 20px;
+  }
+  
+  #recent-searches-container {
+    margin-top: 20px;
+  }
+  
